@@ -1,3 +1,5 @@
+[![CI](https://github.com/indonesia81333-rgb/Mraprguild-Media-Player-Bot/actions/workflows/main.yml/badge.svg)](https://github.com/indonesia81333-rgb/Mraprguild-Media-Player-Bot/actions/workflows/main.yml)
+
 # Mraprguild Media Player Bot
 
 Paste a direct video link into Telegram and get **Watch Online** and **Download** buttons.
