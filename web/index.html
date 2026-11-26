@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Mraprguild Media Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Mraprguild <span>Media Player</span></h1>
+    <p>Watch online, download, or open in Nova Video Player.</p>
+  </header>
+
+  <p id="status" role="status"></p>
+
+  <section id="result" hidden>
+    <h2 id="name"></h2>
+    <div class="actions">
+      <button id="watch" class="primary" type="button">▶ Watch Online</button>
+      <a id="download" class="btn" target="_blank" rel="noopener noreferrer">⬇ Download</a>
+      <a id="nova" class="btn">📱 Open in Nova Player</a>
+      <button id="copy" class="btn" type="button">🔗 Copy player link</button>
+    </div>
+    <video id="player" controls playsinline preload="metadata" hidden></video>
+    <div class="card">
+      <label for="audio">Audio track</label>
+      <select id="audio" disabled><option>Default</option></select>
+      <label for="subs">Subtitles</label>
+      <select id="subs" disabled><option>Off</option></select>
+      <label for="subfile">Add subtitle file from your device (.srt or .vtt)</label>
+      <input id="subfile" type="file" accept=".srt,.vtt">
+    </div>
+    <p class="note">MKV, AVI, AC3/DTS audio or embedded subtitles often do not work in a browser.
+      Use <a id="store" target="_blank" rel="noopener">Nova Video Player</a> for those.
+      If Download opens the video instead, use the player menu or long-press the button and save the link.</p>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
