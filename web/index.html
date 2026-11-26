@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Mraprguild Media Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><h1>Mraprguild <span>Media Player</span></h1></header>
+  <p id="status" role="status"></p>
+
+  <section id="result" hidden>
+    <div id="stage" class="stage paused" tabindex="0">
+      <video id="player" playsinline preload="metadata"></video>
+      <div id="surface"></div>
+      <div id="spinner" hidden></div>
+      <div id="toast" hidden></div>
+      <button id="big" type="button" aria-label="Watch online">▶</button>
+      <button id="unlock" type="button" hidden>🔒 Unlock</button>
+      <div id="controls">
+        <div class="timeline">
+          <span id="now">0:00</span>
+          <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek" disabled>
+          <span id="total">0:00</span>
+        </div>
+        <div class="row">
+          <button id="play" type="button" aria-label="Play or pause">▶</button>
+          <button id="back" type="button" aria-label="Back 10 seconds">⏪</button>
+          <button id="fwd" type="button" aria-label="Forward 10 seconds">⏩</button>
+          <button id="mute" type="button" aria-label="Mute">🔊</button>
+          <input id="volume" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <span class="space"></span>
+          <button id="lock" type="button" aria-label="Lock controls">🔓</button>
+          <button id="fit" type="button" aria-label="Screen fit">Fit</button>
+          <button id="pip" type="button" aria-label="Picture in picture">⧉</button>
+          <button id="full" type="button" aria-label="Full screen">⛶</button>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="name"></h2>
+    <div class="actions">
+      <a id="download" class="btn primary" target="_blank" rel="noopener noreferrer">⬇ Download</a>
+      <button id="restart" class="btn" type="button">↺ Start over</button>
+    </div>
+
+    <div class="card">
+      <h3>Open in Android app</h3>
+      <div id="apps" class="grid"></div>
+      <a id="playlist" class="btn">💻 Playlist file for PC players (.m3u)</a>
+      <p id="apphint" class="note"></p>
+    </div>
+
+    <details class="card" open>
+      <summary>Playback settings</summary>
+      <div class="settings">
+        <label>Speed <select id="speed"></select></label>
+        <label>Quality <select id="quality" disabled></select></label>
+        <label>Audio track <select id="audio" disabled></select></label>
+        <label>Subtitles <select id="subs" disabled></select></label>
+        <label>Subtitle size
+          <select id="subsize"><option value="s">Small</option><option value="m" selected>Medium</option><option value="l">Large</option></select>
+        </label>
+        <label>Subtitle delay (seconds, added files) <input id="delay" type="number" step="0.5" value="0"></label>
+        <label>Brightness <input id="bright" type="range" min="0.3" max="1.5" step="0.1" value="1"></label>
+        <label class="check"><input id="loop" type="checkbox"> Repeat video</label>
+        <label class="wide">Add subtitle file (.srt or .vtt) <input id="subfile" type="file" accept=".srt,.vtt"></label>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>Links and code (copy)</summary>
+      <div id="codes"></div>
+    </details>
+
+    <p class="note">Gestures: double-tap sides to skip 10s, swipe sideways to seek, hold for 2× speed.
+      In full screen, swipe up or down on the left for brightness and on the right for volume.<br>
+      Keys: Space play, ← → seek, ↑ ↓ volume, F full screen, M mute.</p>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
