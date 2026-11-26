@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    image: mraprguild-media-player-bot
+    container_name: mraprguild-media-player-bot
+    env_file: .env
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    restart: unless-stopped
